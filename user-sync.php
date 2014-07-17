@@ -4,7 +4,7 @@ Plugin Name: NetId User Sync
 Plugin URI: https://github.com/BellevueCollege/netId-user-sync
 Description: Synchronize username updates with Net ID application
 Author: Bellevue College Technology Development and Communications
-Version: 0.0
+Version: 0.1
 Author URI: http://www.bellevuecollege.edu
 */
 
