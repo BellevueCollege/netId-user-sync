@@ -34,7 +34,7 @@ in the wordpress database.
 
    Above is the information to connect to the MSSQL server database using freetds library.
    Make sure that the tds version is greater than 8.0
-   You can call the settings group anything. In this case I called it as DevMSSQL2008. User will have to use this string as the value of the hostname in the $dsn variable in the config file.
+   You can call the settings group anything. In this case I called it as DevMSSQL2008. User will have to use this string as the value of the hostname in the $netIdDatabaseDsn variable in the config file.
 
 4. BEFORE Activating the plugin, create config file and configure it.
 

@@ -8,13 +8,13 @@ class netidUsernameChanges
 
     public function __construct()
     {
-        if (substr(netidUserSyncConfig::$dsn,0,5) === 'dblib')
+        if (substr(netidUserSyncConfig::$netIdDatabaseDsn,0,5) === 'dblib')
         {
-            putenv('TDSVER='.netidUserSyncConfig::$netIdDatabaseTDSVer);
+            putenv('TDSVER='.netidUserSyncConfig::$netIdDatabaseTdsVer);
         }
         try
         {
-            $this->dbh = new PDO(netidUserSyncConfig::$dsn,netidUserSyncConfig::$netIdDatabaseLogin,netidUserSyncConfig::$netIdDatabasePassword);
+            $this->dbh = new PDO(netidUserSyncConfig::$netIdDatabaseDsn,netidUserSyncConfig::$netIdDatabaseLogin,netidUserSyncConfig::$netIdDatabasePassword);
         }
         catch(PDOException $ex)
         {

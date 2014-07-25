@@ -18,7 +18,7 @@ class netidUserSyncConfig
      * More information: http://php.net/manual/en/ref.pdo-dblib.connection.php
      * @static
      */
-    public static $dsn = '';
+    public static $netIdDatabaseDsn = '';
 
     /**
      * Database server username
@@ -39,7 +39,7 @@ class netidUserSyncConfig
      * version of the TDS protoco to make that connection.
      * @static
      */
-    public static $netIdDatabaseTDSVer = '8.0';
+    public static $netIdDatabaseTdsVer = '8.0';
 
     public static $sqlColumnEntryID = 'EntryID';
     public static $sqlColumnUserSID = 'UserSID';
