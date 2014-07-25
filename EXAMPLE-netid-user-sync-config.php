@@ -3,12 +3,11 @@
  * Copy/Rename the file as netid-user-sync-config.php
  */
 
-const MAIN = "main";
-const COMMONS = "commons";
-const EVENTS = "events";
-const STUDENTWEB = "studentweb";
-const DEFAULT_EMAIL_DOMAIN = "@bellevuecollege.edu";
-
+const MAIN = 'main';
+const COMMONS = 'commons';
+const EVENTS = 'events';
+const STUDENTWEB = 'studentweb';
+const DEFAULT_EMAIL_DOMAIN = '@bellevuecollege.edu';
 
 class netidUserSyncConfig
 {
@@ -25,7 +24,7 @@ class netidUserSyncConfig
      * Database server username
      * @static
      */
-    public static $netIdDatabaseLogin = "";
+    public static $netIdDatabaseLogin = '';
 
     /**
      * Database server password
@@ -33,14 +32,14 @@ class netidUserSyncConfig
      */
     public static $netIdDatabasePassword = '';
 
-    public static $sqlColumnEntryID = "EntryID";
-    public static $sqlColumnUserSID = "UserSID";
-    public static $sqlColumnOriginalUsername = "OriginalUsername";
-    public static $sqlColumnNewUsername = "NewUsername";
-    public static $sqlColumnWPCommonsComplete = "WPCommonsComplete";
-    public static $sqlColumnWPWWWComplete = "WPWWWComplete";
-    public static $sqlColumnWPEventsComplete = "WPEventsComplete";
-    public static $sqlColumnWPStudentWebComplete = "WPStudentWebComplete";
+    public static $sqlColumnEntryID = 'EntryID';
+    public static $sqlColumnUserSID = 'UserSID';
+    public static $sqlColumnOriginalUsername = 'OriginalUsername';
+    public static $sqlColumnNewUsername = 'NewUsername';
+    public static $sqlColumnWPCommonsComplete = 'WPCommonsComplete';
+    public static $sqlColumnWPWWWComplete = 'WPWWWComplete';
+    public static $sqlColumnWPEventsComplete = 'WPEventsComplete';
+    public static $sqlColumnWPStudentWebComplete = 'WPStudentWebComplete';
 
     /**
      * Query to get update www complete flag in netid database.
@@ -112,8 +111,8 @@ EOS;
      * Options available - main, commons, events, studentweb
      * @static
      */
-    public static $application_name = "";
+    public static $application_name = '';
 
     public static $logs = false;
-    public static $cronInterval = 60 ; //time in seconds;
+    public static $cronInterval = 60; //time in seconds;
 }
