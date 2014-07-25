@@ -32,6 +32,15 @@ class netidUserSyncConfig
      */
     public static $netIdDatabasePassword = '';
 
+    /**
+     * FreeTDS version to use when connecting to database
+     *
+     * If using the FreeTDS library to make database connections use this
+     * version of the TDS protoco to make that connection.
+     * @static
+     */
+    public static $netIdDatabaseTDSVer = '8.0';
+
     public static $sqlColumnEntryID = 'EntryID';
     public static $sqlColumnUserSID = 'UserSID';
     public static $sqlColumnOriginalUsername = 'OriginalUsername';
