@@ -30,7 +30,8 @@ class netidUserSyncConfig
      * Database server password
      * @static
      */
-    public static $netIdDatabasePassword = '';
+    public static $netIdDatabasePassword = ''; /* Password length should be less than 30 characters. This is because the  0.91 version of freetds with the php module causes problems
+  if password is more than 30 characters*/
 
     /**
      * FreeTDS version to use when connecting to database
