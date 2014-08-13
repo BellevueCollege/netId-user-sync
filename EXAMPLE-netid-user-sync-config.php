@@ -125,4 +125,5 @@ EOS;
 
     public static $logs = false;
     public static $cronInterval = 60; //time in seconds;
+    public static $userTable = "users"; // Wordpress table name that needs username change
 }
