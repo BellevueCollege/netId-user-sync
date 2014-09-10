@@ -4,7 +4,7 @@ Plugin Name: NetId User Sync
 Plugin URI: https://github.com/BellevueCollege/netId-user-sync
 Description: Synchronize username updates with Net ID application
 Author: Bellevue College Technology Development and Communications
-Version: 1.1
+Version: 1.2
 Author URI: http://www.bellevuecollege.edu
 */
 
@@ -59,12 +59,20 @@ function user_sync()
                                 writeLogs("original username :".$resultSet[$i][$keyOUsername]);
                                 writeLogs("newusername :".$resultSet[$i][$keyNUsername]);
                                 $newEmail = $resultSet[$i][$keyNUsername].DEFAULT_EMAIL_DOMAIN; //
-                                $returnval = $wpdb->update( "wp_users", array('user_login' => $resultSet[$i][$keyNUsername], 'user_email' => $newEmail), array('user_login' => $resultSet[$i][$keyOUsername]));
-                                writeLogs("update in worpdress :".$returnval);
-                                if($returnval)
+                                if(isset(netidUserSyncConfig::$userTable) && !empty(netidUserSyncConfig::$userTable))
                                 {
-                                    if($netidUserOb->updateFlag($resultSet[$i][$keyOUsername]))
-                                        writeLogs("Flag updated to 1 for new username ".$resultSet[$i][$keyNUsername]);
+                                    $table_name = $wpdb->prefix . netidUserSyncConfig::$userTable;
+                                    $returnval = $wpdb->update( $table_name, array('user_login' => $resultSet[$i][$keyNUsername], 'user_email' => $newEmail), array('user_login' => $resultSet[$i][$keyOUsername]));
+                                    writeLogs("update in worpdress :".$returnval);
+                                    if($returnval)
+                                    {
+                                        if($netidUserOb->updateFlag($resultSet[$i][$keyOUsername]))
+                                            writeLogs("Flag updated to 1 for new username ".$resultSet[$i][$keyNUsername]);
+                                    }
+                                }
+                                else
+                                {
+                                    writeLogs("User table name not set in the configuration");
                                 }
                             }
                         }
