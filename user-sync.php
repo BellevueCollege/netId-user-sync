@@ -4,7 +4,7 @@ Plugin Name: NetId User Sync
 Plugin URI: https://github.com/BellevueCollege/netId-user-sync
 Description: Synchronize username updates with Net ID application
 Author: Bellevue College Technology Development and Communications
-Version: 1.2
+Version: 1.2.1
 Author URI: http://www.bellevuecollege.edu
 */
 
@@ -54,6 +54,7 @@ function user_sync()
 
                         if(isset($resultSet[$i][$keyOUsername]))
                         {
+                            writeLogs("does username exists :".username_exists( $resultSet[$i][$keyOUsername] ));
                             if(username_exists( $resultSet[$i][$keyOUsername] ) && isset($keyNUsername) && isset($resultSet[$i][$keyNUsername]) && !empty($resultSet[$i][$keyNUsername]))
                             {
                                 writeLogs("original username :".$resultSet[$i][$keyOUsername]);
@@ -61,7 +62,12 @@ function user_sync()
                                 $newEmail = $resultSet[$i][$keyNUsername].DEFAULT_EMAIL_DOMAIN; //
                                 if(isset(netidUserSyncConfig::$userTable) && !empty(netidUserSyncConfig::$userTable))
                                 {
-                                    $table_name = $wpdb->prefix . netidUserSyncConfig::$userTable;
+                                    //$table_name = $wpdb->prefix . netidUserSyncConfig::$userTable;
+                                    $table_name = $wpdb->users;
+                                    writeLogs("table name :".$table_name);
+                                    //Check if table exists.
+
+
                                     $returnval = $wpdb->update( $table_name, array('user_login' => $resultSet[$i][$keyNUsername], 'user_email' => $newEmail), array('user_login' => $resultSet[$i][$keyOUsername]));
                                     writeLogs("update in worpdress :".$returnval);
                                     if($returnval)
